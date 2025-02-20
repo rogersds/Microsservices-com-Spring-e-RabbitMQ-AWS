@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import com.pieropan.propostaapp.entity.Usuario;
 
 @Entity
+@Table(name = "tb_proposta")
 public class Proposta {
 
     @Id
