@@ -28,7 +28,7 @@ public class PropostaResponseDto {
 
     private int prazoPagamento;
 
-    private Boolean aprovado;
+    private Boolean aprovada;
 
     private  String observacao;
 

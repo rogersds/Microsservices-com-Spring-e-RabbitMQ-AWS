@@ -1,5 +1,6 @@
 package com.pieropan.propostaapp.service;
 
+import com.pieropan.propostaapp.Mapper.PropostaMapper;
 import com.pieropan.propostaapp.Repository.PropostaRepository;
 import com.pieropan.propostaapp.dto.PropostaRequestDto;
 import com.pieropan.propostaapp.dto.PropostaResponseDto;
@@ -15,8 +16,10 @@ public class PropostaService {
 
 
     public PropostaResponseDto criar(PropostaRequestDto requestDto){
-        propostaRepository.save(new Proposta());
-        return null;
+        Proposta proposta = PropostaMapper.INSTANCE.ConvertDtoToProposta(requestDto);
+        propostaRepository.save(proposta);
+
+        return PropostaMapper.INSTANCE.convertEntityToDto(proposta);
 
     }
 }

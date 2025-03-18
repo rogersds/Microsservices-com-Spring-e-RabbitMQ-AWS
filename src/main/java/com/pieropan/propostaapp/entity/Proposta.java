@@ -1,8 +1,17 @@
 package com.pieropan.propostaapp.entity;
 
+import com.pieropan.propostaapp.entity.*;
 import jakarta.persistence.*;
-import com.pieropan.propostaapp.entity.Usuario;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.engine.internal.Cascade;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "tb_proposta")
 public class Proposta {
@@ -17,7 +26,7 @@ public class Proposta {
     private boolean integrada;
     private String observacao;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
